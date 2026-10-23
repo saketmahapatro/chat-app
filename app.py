@@ -4,10 +4,10 @@ import json
 import uuid
 
 # --- Shared Global Live Network Configuration ---
-# Uses a free public broker to route messages between different computers instantly
-MQTT_BROKER = "://hivemq.com"
+# Uses a high-capacity public broker to route messages between different computers instantly
+MQTT_BROKER = "broker.emqx.io"
 MQTT_PORT = 1883
-MQTT_TOPIC = "saket_global_chat_room_2026"
+MQTT_TOPIC = "saket_global_chat_room_unique_999"
 
 # Give this specific browser tab a unique ID
 if "user_uuid" not in st.session_state:
@@ -71,4 +71,3 @@ if prompt := st.chat_input("Type your message here..."):
         st.session_state.mqtt_client.publish(MQTT_TOPIC, json.dumps(msg_data))
     
     st.rerun()
-    
